@@ -11,6 +11,7 @@ object Form1: TForm1
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   object Edit1: TEdit
@@ -57,5 +58,12 @@ object Form1: TForm1
     Height = 21
     TabOrder = 4
     TextHint = 'Price'
+  end
+  object StringGrid1: TStringGrid
+    Left = 160
+    Top = 21
+    Width = 457
+    Height = 292
+    TabOrder = 5
   end
 end
