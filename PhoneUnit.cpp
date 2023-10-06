@@ -13,7 +13,7 @@ using namespace std;
 // Phone empty constructor
 
 Phone::Phone() {
-  brand = Brand::None;
+  brand = "";
   model = "";
   year = 0;
   price = 0;
@@ -22,7 +22,7 @@ Phone::Phone() {
 
 // Phone constructor
 
-Phone::Phone(Brand brand, string model, int year, int price) {
+Phone::Phone(string brand, string model, int year, int price) {
   this->brand = brand;
   this->model = model;
   this->year = year;
@@ -34,7 +34,7 @@ Phone::~Phone() { count--; }
 
 // Phone set methods
 
-void Phone::setBrand(Brand brand) { this->brand = brand; }
+void Phone::setBrand(string brand) { this->brand = brand; }
 
 void Phone::setModel(string model) { this->model = model; }
 
@@ -44,7 +44,7 @@ void Phone::setPrice(int price) { this->price = price; }
 
 // Phone get methods
 
-Brand Phone::getBrand() const { return brand; }
+string Phone::getBrand() const { return brand; }
 
 string Phone::getModel() const { return model; }
 

@@ -21,8 +21,14 @@ __published:	// IDE-managed Components
 	TEdit *Edit2;
 	TEdit *Edit3;
 	TStringGrid *StringGrid1;
+	TButton *Button2;
+	TEdit *Edit4;
 	void __fastcall Button1Click(TObject *Sender);
 	void __fastcall FormCreate(TObject *Sender);
+	void __fastcall StringGrid1SelectCell(TObject *Sender, int ACol, int ARow, bool &CanSelect);
+
+
+
 
 private:	// User declarations
 	Phone * phones[6];

@@ -1,7 +1,7 @@
 object Form1: TForm1
   Left = 0
   Top = 0
-  Caption = 'Form1'
+  Caption = 'Phone'
   ClientHeight = 336
   ClientWidth = 635
   Color = clBtnFace
@@ -63,7 +63,24 @@ object Form1: TForm1
     Left = 160
     Top = 21
     Width = 457
-    Height = 292
+    Height = 252
     TabOrder = 5
+    OnSelectCell = StringGrid1SelectCell
+  end
+  object Button2: TButton
+    Left = 528
+    Top = 288
+    Width = 89
+    Height = 25
+    Caption = 'Get price after'
+    TabOrder = 6
+  end
+  object Edit4: TEdit
+    Left = 401
+    Top = 290
+    Width = 121
+    Height = 21
+    TabOrder = 7
+    Text = 'Edit4'
   end
 end

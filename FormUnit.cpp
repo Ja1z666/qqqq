@@ -7,7 +7,7 @@
 #pragma package(smart_init)
 #pragma resource "*.dfm"
 TForm1 *Form1;
-
+int row = 0;
 //---------------------------------------------------------------------------
 __fastcall TForm1::TForm1(TComponent* Owner)
 	: TForm( Owner)
@@ -46,37 +46,29 @@ void __fastcall TForm1::Button1Click(TObject *Sender)
 
 	phones[i - 1] = new Phone;
 
-	string choice = AnsiString(ComboBox1->Text).c_str();
-	Brand brand = Brand::None;
-
-	switch(choice) {
-		case "Apple":
-			brand = Brand::Apple;
-			break;
-	}
-
+	string brand = AnsiString(ComboBox1->Text).c_str();
 	string model = AnsiString(Edit1->Text).c_str();
 	int year = Edit2->Text.ToInt();
 	int price = Edit3->Text.ToInt();
 
+	phones[i - 1]->setBrand(brand);
 	phones[i - 1]->setModel(model);
 	phones[i - 1]->setYear(year);
 	phones[i - 1]->setPrice(price);
 
 	StringGrid1->RowCount++;
 	StringGrid1->Cells[0][i] = IntToStr(i) + ".";
+	StringGrid1->Cells[1][i] = phones[i - 1]->getBrand().c_str();
 	StringGrid1->Cells[2][i] = phones[i - 1]->getModel().c_str();
 	StringGrid1->Cells[3][i] = phones[i - 1]->getYear();
 	StringGrid1->Cells[4][i] = phones[i - 1]->getPrice();
 
+	ComboBox1->Text = "";
 	Edit1->Text = "";
 	Edit2->Text = "";
 	Edit3->Text = "";
 }
 //---------------------------------------------------------------------------
-
-
-
 
 void __fastcall TForm1::FormCreate(TObject *Sender)
 {
@@ -86,6 +78,18 @@ void __fastcall TForm1::FormCreate(TObject *Sender)
 	StringGrid1->Cells[2][0] = "Model";
 	StringGrid1->Cells[3][0] = "Year";
 	StringGrid1->Cells[4][0] = "Price";
+}
+//---------------------------------------------------------------------------
+
+
+
+
+
+
+void __fastcall TForm1::StringGrid1SelectCell(TObject *Sender, int ACol, int ARow,
+          bool &CanSelect)
+{
+	row = ARow;
 }
 //---------------------------------------------------------------------------
 
