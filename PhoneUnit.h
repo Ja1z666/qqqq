@@ -7,33 +7,36 @@
 
 using namespace std;
 
-enum Event { XiaomiCreateImposibleGadget, AllBrandsBankrupt };
-
 class Phone {
 private:
-  string brand;
-  string model;
-  int year;
-  int price;
-  static int count;
+	string brand;
+	string model;
+	int year;
+	int price;
+	static int count;
 
 public:
-  Phone();
-  Phone(string brand, string model, int year, int price);
-  ~Phone();
+	// Phone empty constructor
+	Phone();
+	// Phone constructor
+	Phone(string brand, string model, int year, int price);
+	// Phone destructor
+	~Phone();
 
-  void setBrand(string brand);
-  void setModel(string model);
-  void setYear(int year);
-  void setPrice(int price);
+	// Phone set methods
+	void setBrand(string brand);
+	void setModel(string model);
+	void setYear(int year);
+	void setPrice(int price);
 
-  string getBrand() const;
-  string getModel() const;
-  int getYear() const;
-  int getPrice() const;
-  static int getCount();
+	// Phone get methods
+	string getBrand() const;
+	string getModel() const;
+	int getYear() const;
+	int getPrice() const;
+	static int getCount();
 
-  double getPriceAfter(int year);
-  double getPriceAfter(Event event);
+	double getPriceAfter();
+	double getPriceAfter(int year);
 };
 #endif

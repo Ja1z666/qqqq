@@ -11,6 +11,7 @@ object Form1: TForm1
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  OnClose = FormClose
   OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
@@ -74,6 +75,7 @@ object Form1: TForm1
     Height = 25
     Caption = 'Get price after'
     TabOrder = 6
+    OnClick = Button2Click
   end
   object Edit4: TEdit
     Left = 401
@@ -81,6 +83,16 @@ object Form1: TForm1
     Width = 121
     Height = 21
     TabOrder = 7
-    Text = 'Edit4'
+    Text = '0'
+    TextHint = 'Years'
+  end
+  object Button3: TButton
+    Left = 160
+    Top = 288
+    Width = 75
+    Height = 25
+    Caption = 'Count'
+    TabOrder = 8
+    OnClick = Button3Click
   end
 end

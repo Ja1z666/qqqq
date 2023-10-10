@@ -30,6 +30,8 @@ Phone::Phone(string brand, string model, int year, int price) {
   count++;
 }
 
+// Phone destructor
+
 Phone::~Phone() { count--; }
 
 // Phone set methods
@@ -54,16 +56,12 @@ int Phone::getPrice() const { return price; }
 
 int Phone::getCount() { return count; }
 
-double Phone::getPriceAfter(int year) {
-  return this->price - (this->price / 100. * year * 10);
+double Phone::getPriceAfter() {
+	return this->price - (this->price / 100. * 5 * 10);
 }
 
-double Phone::getPriceAfter(Event event) {
-  if(event == Event::XiaomiCreateImposibleGadget) {
-    return this->price / 100. * 5;
-  } else {
-    return this->price * 2.3;
-  }
+double Phone::getPriceAfter(int year) {
+	return this->price - (this->price / 100. * year * 10);
 }
 
 int Phone::count;

@@ -19,29 +19,6 @@ __fastcall TForm1::TForm1(TComponent* Owner)
 
 void __fastcall TForm1::Button1Click(TObject *Sender)
 {
-//	UnicodeString choice = TForm1::ComboBox1->Text;
-//	Brand brand = Brand::None;
-//
-//	if (choice == "Apple") {
-//		brand = Brand::Apple;
-//	} else if (choice == "Samsung") {
-//		brand = Brand::Samsung;
-//	} else if (choice == "Xiaomi") {
-//		brand = Brand::Xiaomi;
-//	} else {
-//		brand = Brand::None;
-//	}
-//
-//	wchar_t* txt = TForm1::Edit1->Text.c_str();
-//	wstring ws(txt);
-//	string model(ws.begin(), ws.end());
-//
-//	int year = TForm1::Edit2->Text.ToInt();
-//
-//	int price = TForm1::Edit3->Text.ToInt();
-//
-//	phone = new Phone(Brand::Apple, model, year, price);
-
 	int i = StringGrid1->RowCount;
 
 	phones[i - 1] = new Phone;
@@ -90,6 +67,31 @@ void __fastcall TForm1::StringGrid1SelectCell(TObject *Sender, int ACol, int ARo
           bool &CanSelect)
 {
 	row = ARow;
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::Button2Click(TObject *Sender)
+{
+	int year = Edit4->Text.ToInt();
+
+	if (year != 0) {
+		ShowMessage(phones[row - 1]->getPriceAfter(year));
+	} else {
+		ShowMessage(phones[row - 1]->getPriceAfter());
+	}
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::Button3Click(TObject *Sender)
+{
+	ShowMessage(phones[0]->getCount());
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::FormClose(TObject *Sender, TCloseAction &Action)
+{
+	delete[] phones;
+	ShowMessage("Goodbye!");
 }
 //---------------------------------------------------------------------------
 

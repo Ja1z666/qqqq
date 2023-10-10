@@ -23,9 +23,13 @@ __published:	// IDE-managed Components
 	TStringGrid *StringGrid1;
 	TButton *Button2;
 	TEdit *Edit4;
+	TButton *Button3;
 	void __fastcall Button1Click(TObject *Sender);
 	void __fastcall FormCreate(TObject *Sender);
 	void __fastcall StringGrid1SelectCell(TObject *Sender, int ACol, int ARow, bool &CanSelect);
+	void __fastcall Button2Click(TObject *Sender);
+	void __fastcall Button3Click(TObject *Sender);
+	void __fastcall FormClose(TObject *Sender, TCloseAction &Action);
 
 
 
