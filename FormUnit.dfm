@@ -2,8 +2,8 @@ object Form1: TForm1
   Left = 0
   Top = 0
   Caption = 'Phone'
-  ClientHeight = 336
-  ClientWidth = 635
+  ClientHeight = 343
+  ClientWidth = 638
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -15,9 +15,37 @@ object Form1: TForm1
   OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
+  object Label1: TLabel
+    Left = 16
+    Top = 21
+    Width = 28
+    Height = 13
+    Caption = 'Brand'
+  end
+  object Label2: TLabel
+    Left = 16
+    Top = 75
+    Width = 28
+    Height = 13
+    Caption = 'Model'
+  end
+  object Label3: TLabel
+    Left = 16
+    Top = 128
+    Width = 22
+    Height = 13
+    Caption = 'Year'
+  end
+  object Label4: TLabel
+    Left = 16
+    Top = 179
+    Width = 23
+    Height = 13
+    Caption = 'Price'
+  end
   object Edit1: TEdit
     Left = 16
-    Top = 48
+    Top = 94
     Width = 121
     Height = 21
     TabOrder = 0
@@ -34,9 +62,11 @@ object Form1: TForm1
   end
   object ComboBox1: TComboBox
     Left = 16
-    Top = 21
+    Top = 40
     Width = 121
     Height = 21
+    ParentShowHint = False
+    ShowHint = False
     TabOrder = 2
     TextHint = 'Brand'
     Items.Strings = (
@@ -46,7 +76,7 @@ object Form1: TForm1
   end
   object Edit2: TEdit
     Left = 16
-    Top = 75
+    Top = 147
     Width = 121
     Height = 21
     TabOrder = 3
@@ -54,7 +84,7 @@ object Form1: TForm1
   end
   object Edit3: TEdit
     Left = 16
-    Top = 102
+    Top = 198
     Width = 121
     Height = 21
     TabOrder = 4

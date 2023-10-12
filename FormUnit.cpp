@@ -90,8 +90,12 @@ void __fastcall TForm1::Button3Click(TObject *Sender)
 
 void __fastcall TForm1::FormClose(TObject *Sender, TCloseAction &Action)
 {
-	delete[] phones;
-	ShowMessage("Goodbye!");
+	for (int i = 0; i < phones[0]->getCount(); i++) {
+    	delete phones[i];
+	}
 }
 //---------------------------------------------------------------------------
+
+
+
 

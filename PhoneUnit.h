@@ -12,7 +12,7 @@ private:
 	string brand;
 	string model;
 	int year;
-	int price;
+	float price;
 	static int count;
 
 public:
@@ -33,7 +33,7 @@ public:
 	string getBrand() const;
 	string getModel() const;
 	int getYear() const;
-	int getPrice() const;
+	float getPrice() const;
 	static int getCount();
 
 	double getPriceAfter();

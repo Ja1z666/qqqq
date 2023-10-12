@@ -11,6 +11,8 @@
 #include <Vcl.Grids.hpp>
 #include "PhonePCH1.h"
 #include "PhoneUnit.h"
+#include <System.Actions.hpp>
+#include <Vcl.ActnList.hpp>
 //---------------------------------------------------------------------------
 class TForm1 : public TForm
 {
@@ -24,6 +26,10 @@ __published:	// IDE-managed Components
 	TButton *Button2;
 	TEdit *Edit4;
 	TButton *Button3;
+	TLabel *Label1;
+	TLabel *Label2;
+	TLabel *Label3;
+	TLabel *Label4;
 	void __fastcall Button1Click(TObject *Sender);
 	void __fastcall FormCreate(TObject *Sender);
 	void __fastcall StringGrid1SelectCell(TObject *Sender, int ACol, int ARow, bool &CanSelect);

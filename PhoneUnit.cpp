@@ -16,7 +16,7 @@ Phone::Phone() {
   brand = "";
   model = "";
   year = 0;
-  price = 0;
+  price = 0.f;
   count++;
 }
 
@@ -42,7 +42,7 @@ void Phone::setModel(string model) { this->model = model; }
 
 void Phone::setYear(int year) { this->year = year; }
 
-void Phone::setPrice(int price) { this->price = price; }
+void Phone::setPrice(float price) { this->price = price; }
 
 // Phone get methods
 
@@ -52,7 +52,7 @@ string Phone::getModel() const { return model; }
 
 int Phone::getYear() const { return year; }
 
-int Phone::getPrice() const { return price; }
+float Phone::getPrice() const { return price; }
 
 int Phone::getCount() { return count; }
 
