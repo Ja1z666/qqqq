@@ -23,13 +23,8 @@ void __fastcall TForm1::Button1Click(TObject *Sender)
 
 	string brand = AnsiString(ComboBox1->Text).c_str();
 	string model = AnsiString(Edit1->Text).c_str();
-    int year;
-	try {
-		year = Edit2->Text.ToInt();
-	} catch (string e) {
-		return ShowMessage("Please input number");
-	}
-	float price = Edit3->Text.ToInt();
+    int year = Edit2->Text.ToInt();
+	float price = Edit3->Text.ToDouble();
 
 	phones[i - 1]->setBrand(brand);
 	phones[i - 1]->setModel(model);
@@ -45,8 +40,8 @@ void __fastcall TForm1::Button1Click(TObject *Sender)
 
 	ComboBox1->Text = "";
 	Edit1->Text = "";
-	Edit2->Text = "";
-	Edit3->Text = "";
+	Edit2->Text = "0";
+	Edit3->Text = "0";
 }
 //---------------------------------------------------------------------------
 
@@ -85,6 +80,54 @@ void __fastcall TForm1::FormClose(TObject *Sender, TCloseAction &Action)
 	for (int i = 0; i < phones[0]->getCount(); i++) {
     	delete phones[i];
 	}
+}
+//---------------------------------------------------------------------------
+void __fastcall TForm1::Edit2KeyPress(TObject *Sender, System::WideChar &Key)
+{
+	if( Key == VK_BACK )
+        return;
+
+	if( (Key < L'0') || (Key > L'9') )
+    {
+        Key = 0;
+    }
+}
+//---------------------------------------------------------------------------
+void __fastcall TForm1::Edit3KeyPress(TObject *Sender, System::WideChar &Key)
+{
+	if( Key == VK_BACK )
+		return;
+	if (Key != '.') {
+		if( (Key < L'0') || (Key > L'9') ) {
+			Key = 0;
+		}
+	}
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::Edit4KeyPress(TObject *Sender, System::WideChar &Key)
+{
+	if( Key == VK_BACK )
+		return;
+
+	if( (Key < L'0') || (Key > L'9') )
+    {
+        Key = 0;
+    }
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::New1Click(TObject *Sender)
+{
+	int i = phones[0]->getCount();
+	ShowMessage(i + 1);
+	phones[i + 1] = new Phone("None", "None", 0, 0);
+	StringGrid1->RowCount++;
+	StringGrid1->Cells[0][i] = IntToStr(i) + ".";
+	StringGrid1->Cells[1][i] = phones[i - 1]->getBrand().c_str();
+	StringGrid1->Cells[2][i] = phones[i - 1]->getModel().c_str();
+	StringGrid1->Cells[3][i] = phones[i - 1]->getYear();
+	StringGrid1->Cells[4][i] = phones[i - 1]->getPrice();
 }
 //---------------------------------------------------------------------------
 

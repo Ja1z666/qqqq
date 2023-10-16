@@ -30,11 +30,18 @@ __published:	// IDE-managed Components
 	TLabel *Label2;
 	TLabel *Label3;
 	TLabel *Label4;
+	TMenuItem *Object1;
+	TMenuItem *New1;
+	TMainMenu *TMainMenu;
 	void __fastcall Button1Click(TObject *Sender);
 	void __fastcall FormCreate(TObject *Sender);
 	void __fastcall StringGrid1SelectCell(TObject *Sender, int ACol, int ARow, bool &CanSelect);
 	void __fastcall Button2Click(TObject *Sender);
 	void __fastcall FormClose(TObject *Sender, TCloseAction &Action);
+	void __fastcall Edit2KeyPress(TObject *Sender, System::WideChar &Key);
+	void __fastcall Edit3KeyPress(TObject *Sender, System::WideChar &Key);
+	void __fastcall Edit4KeyPress(TObject *Sender, System::WideChar &Key);
+	void __fastcall New1Click(TObject *Sender);
 
 
 

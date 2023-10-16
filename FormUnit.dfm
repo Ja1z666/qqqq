@@ -10,6 +10,7 @@ object Form1: TForm1
   Font.Height = -11
   Font.Name = 'Tahoma'
   Font.Style = []
+  Menu = TMainMenu
   OldCreateOrder = False
   OnClose = FormClose
   OnCreate = FormCreate
@@ -82,6 +83,7 @@ object Form1: TForm1
     TabOrder = 3
     Text = '0'
     TextHint = 'Year'
+    OnKeyPress = Edit2KeyPress
   end
   object Edit3: TEdit
     Left = 16
@@ -91,6 +93,7 @@ object Form1: TForm1
     TabOrder = 4
     Text = '0'
     TextHint = 'Price'
+    OnKeyPress = Edit3KeyPress
   end
   object StringGrid1: TStringGrid
     Left = 160
@@ -117,5 +120,17 @@ object Form1: TForm1
     TabOrder = 7
     Text = '0'
     TextHint = 'Years'
+    OnKeyPress = Edit4KeyPress
+  end
+  object TMainMenu: TMainMenu
+    Left = 104
+    Top = 288
+    object Object1: TMenuItem
+      Caption = 'Object'
+      object New1: TMenuItem
+        Caption = 'New'
+        OnClick = New1Click
+      end
+    end
   end
 end
