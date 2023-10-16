@@ -65,10 +65,10 @@ object Form1: TForm1
     Top = 40
     Width = 121
     Height = 21
+    Style = csDropDownList
     ParentShowHint = False
     ShowHint = False
     TabOrder = 2
-    TextHint = 'Brand'
     Items.Strings = (
       'Apple'
       'Samsung'
@@ -80,6 +80,7 @@ object Form1: TForm1
     Width = 121
     Height = 21
     TabOrder = 3
+    Text = '0'
     TextHint = 'Year'
   end
   object Edit3: TEdit
@@ -88,6 +89,7 @@ object Form1: TForm1
     Width = 121
     Height = 21
     TabOrder = 4
+    Text = '0'
     TextHint = 'Price'
   end
   object StringGrid1: TStringGrid
@@ -115,14 +117,5 @@ object Form1: TForm1
     TabOrder = 7
     Text = '0'
     TextHint = 'Years'
-  end
-  object Button3: TButton
-    Left = 160
-    Top = 288
-    Width = 75
-    Height = 25
-    Caption = 'Count'
-    TabOrder = 8
-    OnClick = Button3Click
   end
 end

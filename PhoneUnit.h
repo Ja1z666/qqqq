@@ -27,7 +27,7 @@ public:
 	void setBrand(string brand);
 	void setModel(string model);
 	void setYear(int year);
-	void setPrice(int price);
+	void setPrice(float price);
 
 	// Phone get methods
 	string getBrand() const;

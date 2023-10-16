@@ -15,8 +15,6 @@ __fastcall TForm1::TForm1(TComponent* Owner)
 }
 //---------------------------------------------------------------------------
 
-
-
 void __fastcall TForm1::Button1Click(TObject *Sender)
 {
 	int i = StringGrid1->RowCount;
@@ -25,8 +23,13 @@ void __fastcall TForm1::Button1Click(TObject *Sender)
 
 	string brand = AnsiString(ComboBox1->Text).c_str();
 	string model = AnsiString(Edit1->Text).c_str();
-	int year = Edit2->Text.ToInt();
-	int price = Edit3->Text.ToInt();
+    int year;
+	try {
+		year = Edit2->Text.ToInt();
+	} catch (string e) {
+		return ShowMessage("Please input number");
+	}
+	float price = Edit3->Text.ToInt();
 
 	phones[i - 1]->setBrand(brand);
 	phones[i - 1]->setModel(model);
@@ -58,11 +61,6 @@ void __fastcall TForm1::FormCreate(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
-
-
-
-
-
 void __fastcall TForm1::StringGrid1SelectCell(TObject *Sender, int ACol, int ARow,
           bool &CanSelect)
 {
@@ -82,12 +80,6 @@ void __fastcall TForm1::Button2Click(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TForm1::Button3Click(TObject *Sender)
-{
-	ShowMessage(phones[0]->getCount());
-}
-//---------------------------------------------------------------------------
-
 void __fastcall TForm1::FormClose(TObject *Sender, TCloseAction &Action)
 {
 	for (int i = 0; i < phones[0]->getCount(); i++) {
@@ -95,7 +87,4 @@ void __fastcall TForm1::FormClose(TObject *Sender, TCloseAction &Action)
 	}
 }
 //---------------------------------------------------------------------------
-
-
-
 
