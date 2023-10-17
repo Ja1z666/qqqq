@@ -32,7 +32,7 @@ Phone::Phone(string brand, string model, int year, int price) {
 
 // Phone destructor
 
-Phone::~Phone() { count--; }
+Phone::~Phone() {}
 
 // Phone set methods
 

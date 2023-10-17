@@ -19,6 +19,9 @@ void __fastcall TForm1::Button1Click(TObject *Sender)
 {
 	int i = StringGrid1->RowCount;
 
+	if (i > 10)
+		return ShowMessage("bro... to much...");
+
 	phones[i - 1] = new Phone;
 
 	string brand = AnsiString(ComboBox1->Text).c_str();
@@ -32,7 +35,7 @@ void __fastcall TForm1::Button1Click(TObject *Sender)
 	phones[i - 1]->setPrice(price);
 
 	StringGrid1->RowCount++;
-	StringGrid1->Cells[0][i] = IntToStr(i) + ".";
+	StringGrid1->Cells[0][i] = IntToStr(phones[i - 1]->getCount()) + ".";
 	StringGrid1->Cells[1][i] = phones[i - 1]->getBrand().c_str();
 	StringGrid1->Cells[2][i] = phones[i - 1]->getModel().c_str();
 	StringGrid1->Cells[3][i] = phones[i - 1]->getYear();
@@ -78,7 +81,7 @@ void __fastcall TForm1::Button2Click(TObject *Sender)
 void __fastcall TForm1::FormClose(TObject *Sender, TCloseAction &Action)
 {
 	for (int i = 0; i < phones[0]->getCount(); i++) {
-    	delete phones[i];
+		delete phones[i];
 	}
 }
 //---------------------------------------------------------------------------
@@ -119,15 +122,38 @@ void __fastcall TForm1::Edit4KeyPress(TObject *Sender, System::WideChar &Key)
 
 void __fastcall TForm1::New1Click(TObject *Sender)
 {
-	int i = phones[0]->getCount();
-	ShowMessage(i + 1);
-	phones[i + 1] = new Phone("None", "None", 0, 0);
+	int i = StringGrid1->RowCount;
+
+	if (i > 10)
+		return ShowMessage("bro... to much...");
+
+	phones[i - 1] = new Phone("None", "None", 0, 0);
 	StringGrid1->RowCount++;
-	StringGrid1->Cells[0][i] = IntToStr(i) + ".";
+	StringGrid1->Cells[0][i] = IntToStr(phones[i - 1]->getCount()) + ".";
 	StringGrid1->Cells[1][i] = phones[i - 1]->getBrand().c_str();
 	StringGrid1->Cells[2][i] = phones[i - 1]->getModel().c_str();
 	StringGrid1->Cells[3][i] = phones[i - 1]->getYear();
 	StringGrid1->Cells[4][i] = phones[i - 1]->getPrice();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::Delete1Click(TObject *Sender)
+{
+	delete phones[row];
+	StringGrid1->Cells[0][row] = "";
+	StringGrid1->Cells[1][row] = "";
+	StringGrid1->Cells[2][row] = "";
+	StringGrid1->Cells[3][row] = "";
+	StringGrid1->Cells[4][row] = "";
+
+	int a = StringGrid1->RowCount - row - 1;
+	for (int i = StringGrid1->RowCount; i < row; i--) {
+		StringGrid1->Cells[0][i - 1] = StringGrid1->Cells[0][i];
+		StringGrid1->Cells[1][i - 1] = StringGrid1->Cells[1][i];
+		StringGrid1->Cells[2][i - 1] = StringGrid1->Cells[2][i];
+		StringGrid1->Cells[3][i - 1] = StringGrid1->Cells[3][i];
+		StringGrid1->Cells[4][i - 1] = StringGrid1->Cells[4][i];
+	}
 }
 //---------------------------------------------------------------------------
 

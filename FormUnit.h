@@ -33,6 +33,7 @@ __published:	// IDE-managed Components
 	TMenuItem *Object1;
 	TMenuItem *New1;
 	TMainMenu *TMainMenu;
+	TMenuItem *Delete1;
 	void __fastcall Button1Click(TObject *Sender);
 	void __fastcall FormCreate(TObject *Sender);
 	void __fastcall StringGrid1SelectCell(TObject *Sender, int ACol, int ARow, bool &CanSelect);
@@ -42,6 +43,7 @@ __published:	// IDE-managed Components
 	void __fastcall Edit3KeyPress(TObject *Sender, System::WideChar &Key);
 	void __fastcall Edit4KeyPress(TObject *Sender, System::WideChar &Key);
 	void __fastcall New1Click(TObject *Sender);
+	void __fastcall Delete1Click(TObject *Sender);
 
 
 

@@ -129,7 +129,13 @@ object Form1: TForm1
       Caption = 'Object'
       object New1: TMenuItem
         Caption = 'New'
+        ShortCut = 16462
         OnClick = New1Click
+      end
+      object Delete1: TMenuItem
+        Caption = 'Delete'
+        ShortCut = 16452
+        OnClick = Delete1Click
       end
     end
   end
