@@ -116,7 +116,8 @@ void __fastcall TForm1::Edit4KeyPress(TObject *Sender, System::WideChar &Key)
 	if( (Key < L'0') || (Key > L'9') )
     {
         Key = 0;
-    }
+	}
+
 }
 //---------------------------------------------------------------------------
 
@@ -140,20 +141,13 @@ void __fastcall TForm1::New1Click(TObject *Sender)
 void __fastcall TForm1::Delete1Click(TObject *Sender)
 {
 	delete phones[row];
-	StringGrid1->Cells[0][row] = "";
-	StringGrid1->Cells[1][row] = "";
-	StringGrid1->Cells[2][row] = "";
-	StringGrid1->Cells[3][row] = "";
-	StringGrid1->Cells[4][row] = "";
 
-	int a = StringGrid1->RowCount - row - 1;
-	for (int i = StringGrid1->RowCount; i < row; i--) {
-		StringGrid1->Cells[0][i - 1] = StringGrid1->Cells[0][i];
-		StringGrid1->Cells[1][i - 1] = StringGrid1->Cells[1][i];
-		StringGrid1->Cells[2][i - 1] = StringGrid1->Cells[2][i];
-		StringGrid1->Cells[3][i - 1] = StringGrid1->Cells[3][i];
-		StringGrid1->Cells[4][i - 1] = StringGrid1->Cells[4][i];
+	for (int i = row + 1; i < StringGrid1->RowCount; i++) {
+		for (int j = 0; j < 5; j++) {
+			StringGrid1->Cells[j][i - 1] = StringGrid1->Cells[j][i];
+		}
 	}
+	StringGrid1->RowCount--;
 }
 //---------------------------------------------------------------------------
 
