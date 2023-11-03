@@ -65,3 +65,13 @@ double Phone::getPriceAfter(int year) {
 }
 
 int Phone::count;
+
+
+
+void Mobile::setBattery(float battery) { this->battery = battery; }
+
+float Mobile::getBattery() const { return battery; }
+
+double Mobile::getPriceAfter() {
+	return this->price - (this->price / 100. * 2 * 10);
+}

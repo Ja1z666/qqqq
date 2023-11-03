@@ -39,4 +39,17 @@ public:
 	double getPriceAfter();
 	double getPriceAfter(int year);
 };
+
+class Mobile : Phone {
+private:
+	float battery;
+
+public:
+	void setBattery(float battery);
+
+	float getBattery() const;
+
+	// double getPriceAfter();
+
+};
 #endif
